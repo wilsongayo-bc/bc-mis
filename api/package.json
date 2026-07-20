@@ -99,7 +99,7 @@
     "@types/speakeasy": "^2.0.10",
     "nodemon": "^3.0.0",
     "ts-node": "^10.9.0",
-    "typescript": "^5.0.0"
+    "typescript": "~5.8.3"
   },
   "keywords": [
     "express",
