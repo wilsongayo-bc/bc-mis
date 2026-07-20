@@ -265,3 +265,24 @@ TypeError: Cannot read properties of undefined (reading 'constructor')
 
 Node.js v22.19.0
 [31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `tsx api/server.ts`[39m
+/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/node_modules/typeorm/decorator/src/decorator/columns/PrimaryGeneratedColumn.ts:106
+            target: object.constructor,
+                           ^
+
+
+TypeError: Cannot read properties of undefined (reading 'constructor')
+    at <anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/node_modules/typeorm/decorator/src/decorator/columns/PrimaryGeneratedColumn.ts:106:28)
+    at __decorateElement (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/GradeLevel.ts:2:2736)
+    at <anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/GradeLevel.ts:7:3)
+    at Object.<anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/GradeLevel.ts:5:8)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object.transformer (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/node_modules/tsx/dist/register-BoI6-WNn.cjs:9:3252)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+
+Node.js v22.19.0
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
