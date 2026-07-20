@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Background circle -->
+  <circle cx="16" cy="16" r="15" fill="#2563eb" stroke="#1d4ed8" stroke-width="2"/>
+  
+  <!-- Graduation cap base -->
+  <rect x="8" y="14" width="16" height="3" rx="1" fill="#ffffff"/>
+  
+  <!-- Graduation cap top -->
+  <rect x="6" y="11" width="20" height="4" rx="2" fill="#ffffff"/>
+  
+  <!-- Tassel -->
+  <line x1="24" y1="13" x2="26" y2="15" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="26" cy="15" r="1" fill="#fbbf24"/>
+  
+  <!-- Book pages -->
+  <rect x="10" y="18" width="12" height="8" rx="1" fill="#f3f4f6"/>
+  <rect x="11" y="19" width="10" height="6" rx="0.5" fill="#ffffff"/>
+  
+  <!-- Book lines -->
+  <line x1="12" y1="21" x2="20" y2="21" stroke="#9ca3af" stroke-width="0.5"/>
+  <line x1="12" y1="22.5" x2="18" y2="22.5" stroke="#9ca3af" stroke-width="0.5"/>
+  <line x1="12" y1="24" x2="19" y2="24" stroke="#9ca3af" stroke-width="0.5"/>
+</svg>

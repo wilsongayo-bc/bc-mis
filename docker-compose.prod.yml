@@ -1,0 +1,122 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: bc-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-letmein25}
+      MYSQL_DATABASE: ${DB_DATABASE:-bc_mis}
+      MYSQL_USER: ${DB_USERNAME:-bc_user}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-letmein25}
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./backups:/backups
+      - ./docker/mysql/init:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
+    restart: unless-stopped
+    networks:
+      - bc-network
+    command: 
+      - --default-authentication-plugin=mysql_native_password
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --innodb-buffer-pool-size=3G
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  nginx:
+    image: nginx:alpine
+    container_name: bc-nginx
+    environment:
+      SERVER_NAME: ${SERVER_NAME:-api.benedictcollege.com}
+    entrypoint: ["nginx", "-g", "daemon off;"]
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./docker/nginx/ssl:/etc/nginx/ssl:ro
+      - ./docker/nginx/certbot:/var/www/certbot:ro
+      - ./docker/nginx/logs:/var/log/nginx
+      - ./api/public/uploads:/app/uploads
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - bc-network
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "--no-check-certificate", "https://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  api:
+    build:
+      context: .
+      dockerfile: docker/api/Dockerfile
+    container_name: bc-api
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USERNAME: ${DB_USERNAME:-bc_user}
+      DB_PASSWORD: ${DB_PASSWORD:-letmein25}
+      DB_DATABASE: ${DB_DATABASE:-bc_mis}
+      UPLOADS_DIR: /app/uploads
+      JWT_SECRET: ${JWT_SECRET:-your-super-secret-jwt-key}
+      JWT_EXPIRES_IN: ${JWT_EXPIRES_IN:-24h}
+      BLOB_READ_WRITE_TOKEN: ${BLOB_READ_WRITE_TOKEN:-}
+      TURNSTILE_SECRET: ${TURNSTILE_SECRET:-}
+      UPLOAD_PROVIDER: ${UPLOAD_PROVIDER:-}
+      R2_ACCOUNT_ID: ${R2_ACCOUNT_ID:-}
+      R2_BUCKET: ${R2_BUCKET:-}
+      R2_ACCESS_KEY_ID: ${R2_ACCESS_KEY_ID:-}
+      R2_SECRET_ACCESS_KEY: ${R2_SECRET_ACCESS_KEY:-}
+      R2_PUBLIC_DOMAIN: ${R2_PUBLIC_DOMAIN:-}
+    depends_on:
+      mysql:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - bc-network
+    volumes:
+      - ./api/public/uploads:/usr/src/app/api/public/uploads
+      - ./api/public/uploads:/app/uploads
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Optional: Add monitoring with Watchtower for automatic updates
+  watchtower:
+    image: containrrr/watchtower
+    container_name: bc-watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      WATCHTOWER_CLEANUP: true
+      WATCHTOWER_POLL_INTERVAL: 3600  # Check every hour
+      WATCHTOWER_INCLUDE_STOPPED: true
+    restart: unless-stopped
+    networks:
+      - bc-network
+
+networks:
+  bc-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+volumes:
+  mysql_data:
+    driver: local
+  nginx_logs:
+    driver: local

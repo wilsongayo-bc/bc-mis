@@ -1,0 +1,615 @@
+[
+  {
+    "code": "CC 100",
+    "name": "INTRODUCTION TO COMPUTING",
+    "units": 3,
+    "lectureHours": 2,
+    "labHours": 3,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "code": "CC 101",
+    "name": "COMPUTER PROGRAMMING 1",
+    "units": 3,
+    "lectureHours": 2,
+    "labHours": 3,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "code": "GECC 101",
+    "name": "PURPOSIVE COMMUNICATION",
+    "units": 3,
+    "lectureHours": 3,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "code": "GECC 102",
+    "name": "UNDERSTANDING THE SELF",
+    "units": 3,
+    "lectureHours": 3,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "code": "GECC 103",
+    "name": "READINGS IN THE PHILIPPINE HISTORY",
+    "units": 3,
+    "lectureHours": 3,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "code": "GEELECT 101",
+    "name": "LIVING IN THE IT ERA",
+    "units": 3,
+    "lectureHours": 3,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "code": "GECC 104",
+    "name": "SCIENCE, TECHNOLOGY & SOCIETY",
+    "units": 3,
+    "lectureHours": 3,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "code": "GEELECT 102",
+    "name": "THE ENTREPRENEURIAL MIND",
+    "units": 3,
+    "lectureHours": 3,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "code": "PATHFit 1",
+    "name": "PHYSICAL FITNESS AND HEALTH",
+    "units": 2,
+    "lectureHours": 2,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "code": "NSTP 1",
+    "name": "NATIONAL SERVICE TRAINING PROGRAM 1",
+    "units": 3,
+    "lectureHours": 3,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "code": "IS 101",
+    "name": "FUNDAMENTALS OF INFORMATION SYSTEMS",
+    "units": 3,
+    "lectureHours": 3,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "code": "CC 102",
+    "name": "COMPUTER PROGRAMMING II",
+    "units": 3,
+    "lectureHours": 2,
+    "labHours": 3,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [
+      "CC 101"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "HCI 1",
+    "name": "HUMAN COMPUTER INTERACTION",
+    "units": 3,
+    "lectureHours": 2,
+    "labHours": 3,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [
+      "CC 100"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "GECC 105",
+    "name": "MATHEMATICS IN THE MODERN WORLD",
+    "units": 3,
+    "lectureHours": 3,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [
+      "GECC 104"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "GEELECT 103",
+    "name": "PHILIPPINE POPULAR CULTURE",
+    "units": 3,
+    "lectureHours": 3,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [
+      "GEELECT 101",
+      "GEELECT 102"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "GECC 106",
+    "name": "THE CONTEMPORARY WORLD",
+    "units": 3,
+    "lectureHours": 3,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [
+      "GECC 103"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "PATHFit 2",
+    "name": "DANCE & RHYTHMIC ACVITVITIES",
+    "units": 2,
+    "lectureHours": 2,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [
+      "PATHFit 1"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "NSTP 2",
+    "name": "NATIONAL SERVICE TRAINING PROGRAM 2",
+    "units": 3,
+    "lectureHours": 3,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [
+      "NSTP 1"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "CC 103",
+    "name": "DATA STRUCTURES AND ALGORITHMS",
+    "units": 3,
+    "lectureHours": 2,
+    "labHours": 3,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [
+      "CC 102"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "IS 102",
+    "name": "PROFESSIONAL ISSUES IN INFORMATION SYSTEMS",
+    "units": 3,
+    "lectureHours": 3,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [
+      "2nd year Standing"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "IS 103",
+    "name": "IT INFRASTRUCTURES AND NETWORK TECHNOLOGIES",
+    "units": 3,
+    "lectureHours": 2,
+    "labHours": 3,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [
+      "IS 101"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "BED 101",
+    "name": "ORGANIZATION AND MANAGEMENT CONCEPTS",
+    "units": 3,
+    "lectureHours": 3,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [
+      "2nd year Standing"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "BED 102",
+    "name": "FINANCIAL MANAGEMENT",
+    "units": 3,
+    "lectureHours": 3,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [],
+    "corequisites": [
+      "BED 101"
+    ]
+  },
+  {
+    "code": "DM 101",
+    "name": "DISCRETE MATHEMATICS",
+    "units": 3,
+    "lectureHours": 3,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [
+      "GECC 105"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "GECC 107",
+    "name": "ART APPRECIATION",
+    "units": 3,
+    "lectureHours": 3,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [
+      "GECC 106"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "PATHFit 3",
+    "name": "INDIVIDUAL AND DUAL SPORTS",
+    "units": 2,
+    "lectureHours": 2,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [
+      "PathFit 2"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "CC 104",
+    "name": "INFORMATION MANAGEMENT",
+    "units": 3,
+    "lectureHours": 2,
+    "labHours": 3,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [
+      "CC 103"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "IS 104",
+    "name": "SYSTEM ANALYSIS & DESIGN",
+    "units": 3,
+    "lectureHours": 3,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [
+      "IS 103"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "IPT 101",
+    "name": "INTEGRATIVE PROGRAMMING AND TECHNOLOGIES",
+    "units": 3,
+    "lectureHours": 2,
+    "labHours": 3,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [
+      "HCI"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "BED 103",
+    "name": "BUSINESS PROCESS MANAGEMENT",
+    "units": 3,
+    "lectureHours": 3,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [
+      "BED 102"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "BED 104",
+    "name": "EVALUATION OF BUSINESS PERFORMANCE",
+    "units": 3,
+    "lectureHours": 3,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [],
+    "corequisites": [
+      "BED 103"
+    ]
+  },
+  {
+    "code": "ISEL # 1",
+    "name": "IS PROFESSIONAL ELECTIVE # 1",
+    "units": 3,
+    "lectureHours": 3,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [
+      "2nd year Standing"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "GECC 108",
+    "name": "ETHICS",
+    "units": 3,
+    "lectureHours": 3,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "code": "PATHFit 4",
+    "name": "TEAM SPORTS",
+    "units": 2,
+    "lectureHours": 2,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [
+      "PathFit 3"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "RIZAL",
+    "name": "LIFE AND WORKS OF RIZAL",
+    "units": 3,
+    "lectureHours": 3,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "code": "IS 105",
+    "name": "ENTERPRISE ARCHITECTURE",
+    "units": 3,
+    "lectureHours": 2,
+    "labHours": 3,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [
+      "IS 104"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "IS 106",
+    "name": "IT SECURITY AND MANAGEMENT",
+    "units": 3,
+    "lectureHours": 3,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [
+      "3rd year Standing"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "ISEL # 2",
+    "name": "IS PROFESSIONAL ELECTIVE # 2",
+    "units": 3,
+    "lectureHours": 3,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [
+      "ISEL # 1"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "DM 102",
+    "name": "QUANTITATIVE METHODS",
+    "units": 3,
+    "lectureHours": 3,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [
+      "DM 101"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "RESEARCH",
+    "name": "METHODS OF RESEARCH IN COMPUTING",
+    "units": 3,
+    "lectureHours": 3,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [
+      "3rd year Standing"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "CC 105",
+    "name": "APPLICATION DEVELOPMENT AND EMERGING TECHNOLOGIES",
+    "units": 3,
+    "lectureHours": 2,
+    "labHours": 3,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [
+      "IPT 101",
+      "CC104"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "CAP 101",
+    "name": "CAPSTONE PROJECT I",
+    "units": 3,
+    "lectureHours": 3,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [
+      "RESEARCH"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "IS 107",
+    "name": "IS PROJECT MANAGEMENT",
+    "units": 3,
+    "lectureHours": 3,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [
+      "DM 102"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "IS 108",
+    "name": "SOFTWARE ENGINEERING",
+    "units": 3,
+    "lectureHours": 2,
+    "labHours": 3,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [
+      "IS 105"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "ISEL # 3",
+    "name": "IS PROFESSIONAL ELECTIVE # 3",
+    "units": 3,
+    "lectureHours": 3,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [
+      "ISEL # 2"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "CAP 102",
+    "name": "CAPSTONE PROJECT II",
+    "units": 3,
+    "lectureHours": 3,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [
+      "CAP 101"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "IS 109",
+    "name": "IS STRATEGY, MANAGEMENT AND ACQUISITION",
+    "units": 3,
+    "lectureHours": 3,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [
+      "IS 106"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "ISEL # 4",
+    "name": "IS PROFESSIONAL ELECTIVE # 4",
+    "units": 3,
+    "lectureHours": 3,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [
+      "ISEL # 3"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "PRACTICUM",
+    "name": "PRACTICUM FOR INFORMATION SYSTEMS (486 HOURS)",
+    "units": 6,
+    "lectureHours": 0,
+    "labHours": 0,
+    "departmentCode": "BSIS",
+    "description": null,
+    "prerequisites": [
+      "4th year standing"
+    ],
+    "corequisites": []
+  }
+]

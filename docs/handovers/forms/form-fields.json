@@ -1,0 +1,35 @@
+{
+  "PCC": [
+    { "name": "project_name", "type": "text", "required": true },
+    { "name": "client_org", "type": "text", "required": true },
+    { "name": "vendor_org", "type": "text", "required": true },
+    { "name": "environment", "type": "text", "required": true },
+    { "name": "release_tag", "type": "text", "required": true },
+    { "name": "completion_date", "type": "date", "required": true },
+    { "name": "client_rep_name", "type": "text", "required": true },
+    { "name": "client_rep_title", "type": "text", "required": true },
+    { "name": "client_rep_signature", "type": "signature", "required": true },
+    { "name": "client_rep_date", "type": "date", "required": true },
+    { "name": "pm_signature", "type": "signature", "required": true },
+    { "name": "pm_date", "type": "date", "required": true },
+    { "name": "tech_lead_name", "type": "text", "required": true },
+    { "name": "tech_lead_title", "type": "text", "required": true },
+    { "name": "tech_lead_signature", "type": "signature", "required": true },
+    { "name": "tech_lead_date", "type": "date", "required": true }
+  ],
+  "PSAF": [
+    { "name": "acceptance_date", "type": "date", "required": true },
+    { "name": "support_end_date", "type": "date", "required": true },
+    { "name": "client_rep_name", "type": "text", "required": true },
+    { "name": "client_rep_title", "type": "text", "required": true },
+    { "name": "client_rep_signature", "type": "signature", "required": true },
+    { "name": "client_rep_date", "type": "date", "required": true },
+    { "name": "vendor_rep_name", "type": "text", "required": true },
+    { "name": "vendor_rep_title", "type": "text", "required": true },
+    { "name": "vendor_rep_signature", "type": "signature", "required": true },
+    { "name": "vendor_rep_date", "type": "date", "required": true },
+    { "name": "pm_signature", "type": "signature", "required": true },
+    { "name": "pm_date", "type": "date", "required": true }
+  ]
+}
+

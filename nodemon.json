@@ -1,0 +1,10 @@
+{
+  "watch": ["api"],
+  "ext": "ts,mts,js,json",
+  "ignore": ["api/dist/*"],
+  "exec": "bash -lc 'source .dbg/typeorm-decorator-crash.env 2>/dev/null || { DEBUG_SERVER_URL=\"http://127.0.0.1:7777/event\"; DEBUG_SESSION_ID=\"typeorm-decorator-crash\"; }; tmp=$(mktemp); : \"# #region debug-point B:server-dev-entry\"; curl -sX POST \"$DEBUG_SERVER_URL\" -H \"Content-Type: application/json\" -d \"{\\\"sessionId\\\":\\\"$DEBUG_SESSION_ID\\\",\\\"runId\\\":\\\"post-fix\\\",\\\"hypothesisId\\\":\\\"B\\\",\\\"location\\\":\\\"nodemon.json:5\\\",\\\"msg\\\":\\\"[DEBUG] server:dev launching backend executor\\\",\\\"data\\\":{\\\"exec\\\":\\\"ts-node --project api/tsconfig.json api/server.ts\\\",\\\"node\\\":\\\"$(node -v)\\\"},\\\"ts\\\":$(date +%s)000}\" >/dev/null 2>&1 || true; : \"# #endregion\"; (ts-node --project api/tsconfig.json api/server.ts 2>&1 | tee \"$tmp\"); code=${PIPESTATUS[0]}; tail_b64=$(tail -n 120 \"$tmp\" | base64 | tr -d \"\\n\"); rm -f \"$tmp\"; : \"# #region debug-point B:server-dev-exit\"; curl -sX POST \"$DEBUG_SERVER_URL\" -H \"Content-Type: application/json\" -d \"{\\\"sessionId\\\":\\\"$DEBUG_SESSION_ID\\\",\\\"runId\\\":\\\"post-fix\\\",\\\"hypothesisId\\\":\\\"B\\\",\\\"location\\\":\\\"nodemon.json:5\\\",\\\"msg\\\":\\\"[DEBUG] server:dev backend process exited\\\",\\\"data\\\":{\\\"exitCode\\\":$code,\\\"tailB64\\\":\\\"$tail_b64\\\"},\\\"ts\\\":$(date +%s)000}\" >/dev/null 2>&1 || true; : \"# #endregion\"; exit $code'",
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "delay": 1000
+}

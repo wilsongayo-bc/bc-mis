@@ -1,0 +1,267 @@
+
+> bc-mis@0.0.0 server:dev
+> nodemon
+
+[33m[nodemon] 3.1.10[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): api/**/*[39m
+[33m[nodemon] watching extensions: ts,mts,js,json[39m
+[32m[nodemon] starting `tsx api/server.ts`[39m
+/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/node_modules/typeorm/decorator/src/decorator/columns/PrimaryGeneratedColumn.ts:106
+            target: object.constructor,
+                           ^
+
+
+TypeError: Cannot read properties of undefined (reading 'constructor')
+    at <anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/node_modules/typeorm/decorator/src/decorator/columns/PrimaryGeneratedColumn.ts:106:28)
+    at __decorateElement (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/CourseSection.ts:2:2736)
+    at <anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/CourseSection.ts:10:3)
+    at Object.<anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/CourseSection.ts:8:8)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object.transformer (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/node_modules/tsx/dist/register-D46fvsV_.cjs:3:1104)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+
+Node.js v22.19.0
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `tsx api/server.ts`[39m
+/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/node_modules/typeorm/decorator/src/decorator/columns/PrimaryGeneratedColumn.ts:106
+            target: object.constructor,
+                           ^
+
+
+TypeError: Cannot read properties of undefined (reading 'constructor')
+    at <anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/node_modules/typeorm/decorator/src/decorator/columns/PrimaryGeneratedColumn.ts:106:28)
+    at __decorateElement (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/CourseSection.ts:2:2736)
+    at <anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/CourseSection.ts:10:3)
+    at Object.<anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/CourseSection.ts:8:8)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object.transformer (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/node_modules/tsx/dist/register-D46fvsV_.cjs:3:1104)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+
+Node.js v22.19.0
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `tsx api/server.ts`[39m
+node:internal/modules/cjs/loader:1383
+  const err = new Error(message);
+              ^
+
+Error: Cannot find module 'reflect-metadata'
+Require stack:
+- /Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/server.ts
+    at node:internal/modules/cjs/loader:1383:15
+    at nextResolveSimple (/Users/wilson/.trae/binaries/node/versions/22.19.0/lib/node_modules/tsx/dist/register-D46fvsV_.cjs:4:1004)
+    at /Users/wilson/.trae/binaries/node/versions/22.19.0/lib/node_modules/tsx/dist/register-D46fvsV_.cjs:3:2630
+    at /Users/wilson/.trae/binaries/node/versions/22.19.0/lib/node_modules/tsx/dist/register-D46fvsV_.cjs:3:1542
+    at resolveTsPaths (/Users/wilson/.trae/binaries/node/versions/22.19.0/lib/node_modules/tsx/dist/register-D46fvsV_.cjs:4:760)
+    at /Users/wilson/.trae/binaries/node/versions/22.19.0/lib/node_modules/tsx/dist/register-D46fvsV_.cjs:4:1102
+    at m._resolveFilename (file:///Users/wilson/.trae/binaries/node/versions/22.19.0/lib/node_modules/tsx/dist/register-B7jrtLTO.mjs:1:789)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
+    at Function._load (node:internal/modules/cjs/loader:1192:37) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/server.ts'
+  ]
+}
+
+Node.js v22.19.0
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `tsx api/server.ts`[39m
+/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/node_modules/typeorm/decorator/src/decorator/columns/PrimaryGeneratedColumn.ts:106
+            target: object.constructor,
+                           ^
+
+
+TypeError: Cannot read properties of undefined (reading 'constructor')
+    at <anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/node_modules/typeorm/decorator/src/decorator/columns/PrimaryGeneratedColumn.ts:106:28)
+    at __decorateElement (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/CourseSection.ts:2:2736)
+    at <anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/CourseSection.ts:10:3)
+    at Object.<anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/CourseSection.ts:8:8)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object.transformer (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/node_modules/tsx/dist/register-BoI6-WNn.cjs:9:3252)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+
+Node.js v22.19.0
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `tsx api/server.ts`[39m
+/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/node_modules/typeorm/decorator/src/decorator/columns/PrimaryGeneratedColumn.ts:106
+            target: object.constructor,
+                           ^
+
+
+TypeError: Cannot read properties of undefined (reading 'constructor')
+    at <anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/node_modules/typeorm/decorator/src/decorator/columns/PrimaryGeneratedColumn.ts:106:28)
+    at __decorateElement (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/GradeLevel.ts:2:2736)
+    at <anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/GradeLevel.ts:10:3)
+    at Object.<anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/GradeLevel.ts:8:8)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object.transformer (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/node_modules/tsx/dist/register-BoI6-WNn.cjs:9:3252)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+
+Node.js v22.19.0
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `tsx api/server.ts`[39m
+/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/node_modules/typeorm/decorator/src/decorator/columns/PrimaryGeneratedColumn.ts:106
+            target: object.constructor,
+                           ^
+
+
+TypeError: Cannot read properties of undefined (reading 'constructor')
+    at <anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/node_modules/typeorm/decorator/src/decorator/columns/PrimaryGeneratedColumn.ts:106:28)
+    at __decorateElement (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/GradeLevel.ts:2:2736)
+    at <anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/GradeLevel.ts:7:3)
+    at Object.<anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/GradeLevel.ts:5:8)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object.transformer (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/node_modules/tsx/dist/register-BoI6-WNn.cjs:9:3252)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+
+Node.js v22.19.0
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `tsx api/server.ts`[39m
+/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/node_modules/typeorm/decorator/src/decorator/columns/PrimaryGeneratedColumn.ts:106
+            target: object.constructor,
+                           ^
+
+
+TypeError: Cannot read properties of undefined (reading 'constructor')
+    at <anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/node_modules/typeorm/decorator/src/decorator/columns/PrimaryGeneratedColumn.ts:106:28)
+    at __decorateElement (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/GradeLevel.ts:2:2736)
+    at <anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/GradeLevel.ts:7:3)
+    at Object.<anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/GradeLevel.ts:5:8)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object.transformer (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/node_modules/tsx/dist/register-BoI6-WNn.cjs:9:3252)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+
+Node.js v22.19.0
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `tsx api/server.ts`[39m
+/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/node_modules/typeorm/decorator/src/decorator/columns/PrimaryGeneratedColumn.ts:106
+            target: object.constructor,
+                           ^
+
+
+TypeError: Cannot read properties of undefined (reading 'constructor')
+    at <anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/node_modules/typeorm/decorator/src/decorator/columns/PrimaryGeneratedColumn.ts:106:28)
+    at __decorateElement (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/GradeLevel.ts:2:2736)
+    at <anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/GradeLevel.ts:7:3)
+    at Object.<anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/GradeLevel.ts:5:8)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object.transformer (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/node_modules/tsx/dist/register-BoI6-WNn.cjs:9:3252)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+
+Node.js v22.19.0
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `tsx api/server.ts`[39m
+/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/node_modules/typeorm/decorator/src/decorator/columns/PrimaryGeneratedColumn.ts:106
+            target: object.constructor,
+                           ^
+
+
+TypeError: Cannot read properties of undefined (reading 'constructor')
+    at <anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/node_modules/typeorm/decorator/src/decorator/columns/PrimaryGeneratedColumn.ts:106:28)
+    at __decorateElement (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/GradeLevel.ts:2:2736)
+    at <anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/GradeLevel.ts:7:3)
+    at Object.<anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/GradeLevel.ts:5:8)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object.transformer (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/node_modules/tsx/dist/register-BoI6-WNn.cjs:9:3252)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+
+Node.js v22.19.0
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `tsx api/server.ts`[39m
+(node:8716) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 exit listeners added to [Bus]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(Use `node --trace-warnings ...` to show where the warning was created)
+/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/node_modules/typeorm/decorator/src/decorator/columns/PrimaryGeneratedColumn.ts:106
+            target: object.constructor,
+                           ^
+
+
+TypeError: Cannot read properties of undefined (reading 'constructor')
+    at <anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/node_modules/typeorm/decorator/src/decorator/columns/PrimaryGeneratedColumn.ts:106:28)
+    at __decorateElement (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/GradeLevel.ts:2:2736)
+    at <anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/GradeLevel.ts:7:3)
+    at Object.<anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/GradeLevel.ts:5:8)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object.transformer (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/node_modules/tsx/dist/register-BoI6-WNn.cjs:9:3252)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+
+Node.js v22.19.0
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `tsx api/server.ts`[39m
+/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/node_modules/typeorm/decorator/src/decorator/columns/PrimaryGeneratedColumn.ts:106
+            target: object.constructor,
+                           ^
+
+
+TypeError: Cannot read properties of undefined (reading 'constructor')
+    at <anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/node_modules/typeorm/decorator/src/decorator/columns/PrimaryGeneratedColumn.ts:106:28)
+    at __decorateElement (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/GradeLevel.ts:2:2736)
+    at <anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/GradeLevel.ts:7:3)
+    at Object.<anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/GradeLevel.ts:5:8)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object.transformer (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/node_modules/tsx/dist/register-BoI6-WNn.cjs:9:3252)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+
+Node.js v22.19.0
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `tsx api/server.ts`[39m
+/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/node_modules/typeorm/decorator/src/decorator/columns/PrimaryGeneratedColumn.ts:106
+            target: object.constructor,
+                           ^
+
+
+TypeError: Cannot read properties of undefined (reading 'constructor')
+    at <anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/node_modules/typeorm/decorator/src/decorator/columns/PrimaryGeneratedColumn.ts:106:28)
+    at __decorateElement (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/GradeLevel.ts:2:2736)
+    at <anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/GradeLevel.ts:7:3)
+    at Object.<anonymous> (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/api/entities/GradeLevel.ts:5:8)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object.transformer (/Users/wilson/Desktop/2025/BCC/project-2026/bc-mis/node_modules/tsx/dist/register-BoI6-WNn.cjs:9:3252)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
+
+Node.js v22.19.0
+[31m[nodemon] app crashed - waiting for file changes before starting...[39m

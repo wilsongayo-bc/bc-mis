@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Project Completion Certificate</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; margin: 24px; }
+    h1 { font-size: 22px; }
+    fieldset { border: 1px solid #ccc; padding: 16px; margin-bottom: 16px; }
+    label { display: block; margin: 8px 0 4px; }
+    input, select { width: 100%; padding: 8px; }
+    .row { display: flex; gap: 12px; }
+    .col { flex: 1; }
+  </style>
+</head>
+<body>
+  <h1>Project Completion Certificate</h1>
+  <p>Document ID: PCC-<input name="doc_id" placeholder="PROJECT_CODE-YYYYMMDD"> — Version: 1.0</p>
+
+  <fieldset>
+    <legend>Project Details</legend>
+    <label>Project</label>
+    <input name="project_name" required>
+    <label>Client Organization</label>
+    <input name="client_org" required>
+    <label>Vendor/Developer Organization</label>
+    <input name="vendor_org" required>
+    <div class="row">
+      <div class="col">
+        <label>Deployment Environment</label>
+        <input name="environment" placeholder="Production/Staging" required>
+      </div>
+      <div class="col">
+        <label>Release Tag/Version</label>
+        <input name="release_tag" placeholder="vX.Y.Z" required>
+      </div>
+      <div class="col">
+        <label>Date of Completion</label>
+        <input type="date" name="completion_date" required>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Statement of Completion</legend>
+    <p>The undersigned confirms delivery to production, alignment with initial scope and approved changes, documentation availability, completed testing, and operational readiness (backups, monitoring, access).</p>
+  </fieldset>
+
+  <fieldset>
+    <legend>Authorized Signatories</legend>
+    <label>Client Representative — Name</label>
+    <input name="client_rep_name" required>
+    <label>Client Representative — Title</label>
+    <input name="client_rep_title" required>
+    <div class="row">
+      <div class="col">
+        <label>Client Representative — Signature</label>
+        <input name="client_rep_signature" placeholder="Signature" required>
+      </div>
+      <div class="col">
+        <label>Date</label>
+        <input type="date" name="client_rep_date" required>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <label>Project Manager (Gene Paul R. Cueva) — Signature</label>
+        <input name="pm_signature" placeholder="Signature" required>
+      </div>
+      <div class="col">
+        <label>Date</label>
+        <input type="date" name="pm_date" required>
+      </div>
+    </div>
+
+    <label>Technical Lead — Name</label>
+    <input name="tech_lead_name" required>
+    <label>Technical Lead — Title</label>
+    <input name="tech_lead_title" required>
+    <div class="row">
+      <div class="col">
+        <label>Technical Lead — Signature</label>
+        <input name="tech_lead_signature" placeholder="Signature" required>
+      </div>
+      <div class="col">
+        <label>Date</label>
+        <input type="date" name="tech_lead_date" required>
+      </div>
+    </div>
+  </fieldset>
+</body>
+</html>
+

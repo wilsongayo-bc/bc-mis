@@ -1,0 +1,754 @@
+[
+  {
+    "code": "GE CC 101",
+    "name": "Understanding Self",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "GE CC 102",
+    "name": "Reading in Philippine History",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "GE CC 103",
+    "name": "Purposive Communication",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "GE Elective 1",
+    "name": "The Entrepreneurial Mind",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "TE - FC 101",
+    "name": "The Child and Adolescent Learner and Learning Principles",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "GE CC 108",
+    "name": "Science Technology and Society",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "GC Elective 3",
+    "name": "Living in the IT Era",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "PathFit 1",
+    "name": "Physical Fitness",
+    "units": 2,
+    "lectureUnits": 2,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "NSTP 1",
+    "name": "National Service Training Program 1",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "GE CC 104",
+    "name": "Mathematics in Modern World",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "GE Elective 2",
+    "name": "Philippine Popular Culture",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "GE CC 105",
+    "name": "The Contemporary World",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "TE-PC 201",
+    "name": "Facilitating Learner-Centered Teaching: The Learner Centered Approaches with Emphasis on Trainers Methodology 1",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "TE-FC 103",
+    "name": "The Teacher and the Community, School Culture and Organizational leadership with Focus in the Philippine TVET",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "TE-FC 104",
+    "name": "Foundation of Special and Inclusive Education",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "TE-PC 205",
+    "name": "Technology for Teaching and learning 1",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "PathFit 2",
+    "name": "Rhythmic Activities",
+    "units": 2,
+    "lectureUnits": 2,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "PE 1"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "NSTP 2",
+    "name": "National Service Training Program 2",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NSTP 1"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "TLE IC-IAFA",
+    "name": "Introduction to AFA",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "TLE IC-ICT EC",
+    "name": "Teaching ICT as an Exploratory Course",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "TE-PC 207",
+    "name": "Building and enhancing New Literacies Across the Curriculum",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "TE-PC 203",
+    "name": "Assessment in Learning 1",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "TE-PC 202",
+    "name": "The Andragogy of Learning Including Principles of Trainer's Methodology",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "TLE IC-IIA",
+    "name": "Introduction to Industrial Arts",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "TLE IC-Entrep",
+    "name": "Entrepreneurship",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "ICT-CP 1",
+    "name": "Computer Programming 1",
+    "units": 3,
+    "lectureUnits": 2,
+    "labUnits": 1,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "TLE IC- TCC IA",
+    "name": "Teaching Common Competencies in IA",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "PathFit 3",
+    "name": "Individual and Dual Sports",
+    "units": 2,
+    "lectureUnits": 2,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "PE 2"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "TLE IC - HEL",
+    "name": "Home Economics Literacy",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "ICT-CP 2",
+    "name": "Computer Programming 2",
+    "units": 3,
+    "lectureUnits": 2,
+    "labUnits": 1,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "ICT-CP 1"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "GE CC 107",
+    "name": "Art Appreciation",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "TTL 2",
+    "name": "Technology for Teaching and Learning 2",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "TTL1"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "TE -PC 206",
+    "name": "Curriculum Development and Evaluation with Emphasis on Trainers Methodology 2",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "GE CC 106",
+    "name": "Ethics",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "TE-PC 204",
+    "name": "Assessment in Learning 2 with Focus on Trainers Methodology 1&2",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "ASL 1"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "ICT -CP 3",
+    "name": "Data Structure and Algorithms",
+    "units": 3,
+    "lectureUnits": 2,
+    "labUnits": 1,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "ICT-CP 2"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "PathFit 4",
+    "name": "Team Sports",
+    "units": 2,
+    "lectureUnits": 2,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "PE 3"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "ICT -CP 4",
+    "name": "Object Oriented Programming",
+    "units": 3,
+    "lectureUnits": 2,
+    "labUnits": 1,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "ICT -CP 3"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "ICT -CP 5",
+    "name": "Information Management",
+    "units": 3,
+    "lectureUnits": 2,
+    "labUnits": 1,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "ICT -CP 4"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "TLE IC- TCC HE",
+    "name": "Teaching Common Competencies in HE",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "ICT -CP 6",
+    "name": "System Analysis and Design",
+    "units": 3,
+    "lectureUnits": 2,
+    "labUnits": 1,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "ICT -CP 5"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "TV-AC RES.1",
+    "name": "Technology Research 1(Methods of Research)",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "GE-LWR",
+    "name": "Life and Works of Rizal",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "TV-AC WLE",
+    "name": "Work-based Learning with Emphasis on Trainers' Methodology",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "ICT -CP 7",
+    "name": "Human Computer Interaction",
+    "units": 3,
+    "lectureUnits": 2,
+    "labUnits": 1,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "ICT -CP 6"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "ICT -CP 8",
+    "name": "Integrative Programming and Technologies 1",
+    "units": 3,
+    "lectureUnits": 2,
+    "labUnits": 1,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "ICT -CP 7"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "TV-AC RES. 2",
+    "name": "Technology Research 2(Undergrad Thesis/Research Paper)",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "ICT -CP 9",
+    "name": "Software Engineering",
+    "units": 3,
+    "lectureUnits": 2,
+    "labUnits": 1,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "ICT -CP 8"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "TLE IC -TCC ICT",
+    "name": "Teaching Competencies in ICT",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "TE-FC 102",
+    "name": "The Teaching Profession",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "ICT -CP 10",
+    "name": "Integrative Programming and Technologies 2",
+    "units": 3,
+    "lectureUnits": 2,
+    "labUnits": 1,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "ICT -CP 9"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "TLE IC- TCC AFA",
+    "name": "Teaching Common Competence in AFA",
+    "units": 3,
+    "lectureUnits": 3,
+    "labUnits": 0,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "NONE"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "ICT -CP 11",
+    "name": "Web System and Technologies",
+    "units": 3,
+    "lectureUnits": 2,
+    "labUnits": 1,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "ICT -CP 10"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "ICT -CP 12",
+    "name": "Application Development and Emerging Technologies",
+    "units": 3,
+    "lectureUnits": 2,
+    "labUnits": 1,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "ICT -CP 11"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "FS 01",
+    "name": "Field Study 1",
+    "units": 3,
+    "lectureUnits": 0,
+    "labUnits": 3,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "4th yr. Standing"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "FS 02",
+    "name": "Field Study 2",
+    "units": 3,
+    "lectureUnits": 0,
+    "labUnits": 3,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "4th yr. Standing"
+    ],
+    "corequisites": []
+  },
+  {
+    "code": "SIT",
+    "name": "Supervised Industrial Training",
+    "units": 3,
+    "lectureUnits": 0,
+    "labUnits": 3,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [],
+    "corequisites": []
+  },
+  {
+    "code": "TE-ELC TI",
+    "name": "Teaching Internship",
+    "units": 6,
+    "lectureUnits": 0,
+    "labUnits": 6,
+    "departmentCode": "BTVTED",
+    "description": null,
+    "prerequisites": [
+      "4th yr. Standing"
+    ],
+    "corequisites": []
+  }
+]
