@@ -110,8 +110,8 @@ const corsOptions = {
   optionsSuccessStatus: 200 // For legacy browser support
 };
 
-// CORS handled at nginx; disable Express-level CORS to avoid duplicate headers
-if (process.env.NODE_ENV !== 'production') {
+const enableExpressCors = process.env.ENABLE_EXPRESS_CORS !== 'false';
+if (enableExpressCors) {
   app.use(cors(corsOptions));
 }
 // Enhanced body parsing with better limits for production
