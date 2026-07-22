@@ -40,12 +40,6 @@
   "dependencies": {
     "@aws-sdk/client-s3": "^3.940.0",
     "@aws-sdk/s3-request-presigner": "^3.940.0",
-    "@nestjs/common": "^10.0.0",
-    "@nestjs/core": "^11.1.28",
-    "@nestjs/jwt": "^10.0.0",
-    "@nestjs/passport": "^10.0.0",
-    "@nestjs/platform-express": "^11.1.28",
-    "@nestjs/typeorm": "^11.0.3",
     "@reduxjs/toolkit": "^2.0.0",
     "@types/multer": "^2.0.0",
     "@types/pg": "^8.15.5",
@@ -99,9 +93,6 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
-    "@nestjs/cli": "^10.0.0",
-    "@nestjs/schematics": "^11.1.0",
-    "@nestjs/testing": "^11.1.28",
     "@types/bcrypt": "^5.0.2",
     "@types/cors": "^2.8.19",
     "@types/express": "^4.17.21",
