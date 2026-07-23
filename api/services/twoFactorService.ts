@@ -152,8 +152,8 @@ export const sendEmailCode = async (email: string, code: string, userName: strin
             <p>For security reasons, never share this code with anyone.</p>
           </div>
           <div class="footer">
-            <p>This is an automated message from Benedict College MIS. Please do not reply to this email.</p>
-            <p>&copy; ${new Date().getFullYear()} Benedict College. All rights reserved.</p>
+            <p>This is an automated message from Benedicto College MIS. Please do not reply to this email.</p>
+            <p>&copy; ${new Date().getFullYear()} Benedict0 College. All rights reserved.</p>
           </div>
         </div>
       </body>
@@ -173,8 +173,8 @@ If you did not attempt to log in, please ignore this email and contact your admi
 For security reasons, never share this code with anyone.
 
 ---
-This is an automated message from Benedict College MIS.
-© ${new Date().getFullYear()} Benedict College. All rights reserved.
+This is an automated message from Benedicto College MIS.
+© ${new Date().getFullYear()} Benedicto College. All rights reserved.
     `
   };
 

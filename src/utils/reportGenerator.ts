@@ -9,12 +9,12 @@ interface AutoTableDoc extends jsPDF {
   };
 }
 
-const formatTime = (time: string) => {
+const formatTimeCompact = (time: string) => {
   if (!time) return '';
   const [hours, minutes] = time.split(':').map(Number);
   const period = hours >= 12 ? 'PM' : 'AM';
   const h = hours % 12 || 12;
-  return `${h}:${minutes.toString().padStart(2, '0')} ${period}`;
+  return `${String(h).padStart(2, '0')}:${String(minutes).padStart(2, '0')}${period}`;
 };
 
 const mapDays = (days: string) => {
@@ -35,6 +35,22 @@ const mapDays = (days: string) => {
     .join('');
 };
 
+const formatYearLevelShort = (yearLevel: string) => {
+  const normalized = yearLevel.trim().toLowerCase();
+  if (normalized === 'first year') return '1st Year';
+  if (normalized === 'second year') return '2nd Year';
+  if (normalized === 'third year') return '3rd Year';
+  if (normalized === 'fourth year') return '4th Year';
+  return yearLevel;
+};
+
+const formatSemesterShort = (semester: string) => {
+  const normalized = semester.trim().toLowerCase();
+  if (normalized === 'first semester') return '1st Semester';
+  if (normalized === 'second semester') return '2nd Semester';
+  return semester;
+};
+
 export const generateScheduleReport = async (
   schedules: Schedule[],
   meta: {
@@ -47,6 +63,8 @@ export const generateScheduleReport = async (
     schoolName?: string;
     schoolAddress?: string;
     schoolEmail?: string;
+    endorsedBy?: string;
+    endorsedByPosition?: string;
     preparedBy?: string;
     preparedByPosition?: string;
     approvedBy?: string;
@@ -58,14 +76,12 @@ export const generateScheduleReport = async (
 ) => {
   const doc = new jsPDF();
   const pageWidth = doc.internal.pageSize.width;
+  const pageHeight = doc.internal.pageSize.height;
   const courseCode = meta.courseCode || (meta.courseName.includes('Bachelor') 
     ? meta.courseName.replace('Bachelor of ', '').split(' ').map(w => w[0]).join('') 
     : meta.courseName);
   
-  // --- Header ---
-  let yPos = 15;
-  
-  // Try to add logo if provided
+  let yPos = 10;
   if (meta.logoUrl) {
     try {
       const img = await new Promise<HTMLImageElement>((resolve, reject) => {
@@ -75,204 +91,147 @@ export const generateScheduleReport = async (
         image.onerror = reject;
         image.src = meta.logoUrl!;
       });
-      
-      // Determine format from URL or default to JPEG
+
       let format = 'JPEG';
       if (meta.logoUrl && meta.logoUrl.toLowerCase().endsWith('.png')) {
         format = 'PNG';
       }
-      
-      // Add logo to the left of the header
-      doc.addImage(img, format, 25, 10, 25, 25);
-    } catch (e) {
-      console.warn('Failed to load logo', e);
+
+      const logoSize = 18;
+      const logoX = pageWidth / 2 - logoSize / 2;
+      doc.addImage(img, format, logoX, yPos, logoSize, logoSize);
+      yPos += logoSize + 4;
+    } catch {
+      void 0;
     }
   }
 
-  doc.setFontSize(16);
   doc.setFont('helvetica', 'bold');
-  doc.text(meta.schoolName || 'COLEGIO De ALICIA', pageWidth / 2, yPos, { align: 'center' });
-  yPos += 7;
-  
-  doc.setFontSize(10);
+  doc.setFontSize(16);
+  doc.text((meta.schoolName || 'BENEDICTO COLLEGE').toUpperCase(), pageWidth / 2, yPos, { align: 'center' });
+  yPos += 6;
+
   doc.setFont('helvetica', 'normal');
-  
+  doc.setFontSize(10);
   if (meta.schoolAddress) {
-    const addressLines = meta.schoolAddress.split('\n').filter(line => line.trim());
-    addressLines.forEach(line => {
-      doc.text(line.trim(), pageWidth / 2, yPos, { align: 'center' });
-      yPos += 5;
-    });
-  } else {
-    doc.text('Republic of the Philippines', pageWidth / 2, yPos, { align: 'center' });
-    yPos += 5;
-    doc.text('So. Caniogan, Pular, Pob. Alicia', pageWidth / 2, yPos, { align: 'center' });
-    yPos += 5;
-    doc.text('Alicia, Bohol', pageWidth / 2, yPos, { align: 'center' });
-    yPos += 5;
+    const addressLines = meta.schoolAddress.split('\n').map(s => s.trim()).filter(Boolean);
+    for (const line of addressLines) {
+      doc.text(line, pageWidth / 2, yPos, { align: 'center' });
+      yPos += 4.5;
+    }
   }
 
-  // Add email if provided
   if (meta.schoolEmail) {
-    doc.setTextColor(0, 51, 204); // Dark blue like a link
+    doc.setTextColor(0, 51, 204);
     doc.text(meta.schoolEmail, pageWidth / 2, yPos, { align: 'center' });
-    
-    // Add underline
     const textWidth = doc.getTextWidth(meta.schoolEmail);
     doc.line(pageWidth / 2 - textWidth / 2, yPos + 1, pageWidth / 2 + textWidth / 2, yPos + 1);
-    
-    doc.setTextColor(0, 0, 0); // Reset color
+    doc.setTextColor(0, 0, 0);
     yPos += 5;
   }
-  
-  yPos += 5; // Extra spacing after header
 
-  // Title
-  doc.setFontSize(12);
   doc.setFont('helvetica', 'bold');
-  doc.text(meta.courseName.toUpperCase(), pageWidth / 2, yPos, { align: 'center' });
-  yPos += 7;
-
-  // Semester & AY
-  doc.text(`${meta.semester.toUpperCase()} - A.Y. ${meta.academicYear}`, pageWidth / 2, yPos, { align: 'center' });
-  yPos += 10;
-
-  // Year Level Header (e.g., BTVTED - FIRST YEAR)
-    
-  doc.setFillColor(220, 220, 220); // Light gray
-  doc.rect(14, yPos - 5, pageWidth - 28, 7, 'F');
-  doc.text(`${courseCode} - ${meta.yearLevel.toUpperCase()}`, pageWidth / 2, yPos, { align: 'center' });
+  doc.setFontSize(11);
+  doc.text(`${formatSemesterShort(meta.semester).toUpperCase()}, SY ${meta.academicYear}`, pageWidth / 2, yPos, { align: 'center' });
   yPos += 5;
 
-  // --- Content ---
-  
-  // Group schedules by Block (Section)
-  const grouped = schedules.reduce((acc, schedule) => {
-    const block = schedule.courseSection?.sectionName || 'Unknown Block';
-    if (!acc[block]) acc[block] = [];
-    acc[block].push(schedule);
-    return acc;
-  }, {} as Record<string, Schedule[]>);
+  doc.setFontSize(11);
+  doc.text('CLASS SCHEDULE', pageWidth / 2, yPos, { align: 'center' });
+  yPos += 6;
 
-  // Sort blocks (Block 1, Block 2, ...)
-  const blocks = Object.keys(grouped).sort();
+  doc.setFontSize(11);
+  doc.text(meta.courseName.toUpperCase(), pageWidth / 2, yPos, { align: 'center' });
+  yPos += 6;
 
-  for (const block of blocks) {
-    const blockSchedules = grouped[block];
-    
-    // Calculate Total Units
-    const totalUnits = blockSchedules.reduce((sum, s) => sum + (s.subject?.units || 0), 0);
-
-    // Section Header
-    // doc.setFillColor(100, 100, 100); // Darker gray
-    // doc.setTextColor(255, 255, 255);
-    // doc.rect(14, yPos, pageWidth - 28, 7, 'F');
-    // doc.text(`${courseCode} ${block}`, pageWidth / 2, yPos + 5, { align: 'center' });
-    // doc.setTextColor(0, 0, 0);
-    // yPos += 7;
-
-    // Table
-    autoTable(doc, {
-      startY: yPos,
-      head: [[
-        { content: `${courseCode} ${block}`, colSpan: 9, styles: { halign: 'center', fillColor: [100, 100, 100], textColor: [255, 255, 255], fontStyle: 'bold' } }
-      ], [
-        'SUBJECT', 
-        'SUBJECT DESCRIPTION', 
-        'UNIT', 
-        'TIME START', 
-        'TIME END', 
-        'DAYS', 
-        'ROOM', 
-        'NO OF STUD', 
-        'INSTRUCTOR'
-      ]],
-      body: [
-        ...blockSchedules.map(s => [
-          s.subject?.code || '',
-          s.subject?.name || '',
-          s.subject?.units || 0,
-          formatTime(s.startTime),
-          formatTime(s.endTime),
-          mapDays(s.dayOfWeek),
-          s.room || '',
-          s.courseSection?.maxStudents || 50, // Default to 50 if not set
-          s.teacher?.user 
-            ? `${s.teacher.user.firstName} ${s.teacher.user.lastName}` 
-            : 'TBA'
-        ]),
-        // Total Row
-        [
-          { content: 'TOTAL', colSpan: 2, styles: { halign: 'right', fontStyle: 'bold' } },
-          { content: totalUnits, styles: { fontStyle: 'bold' } },
-          { content: '', colSpan: 6 }
-        ]
-      ],
-      theme: 'grid',
-      headStyles: {
-        fillColor: [220, 220, 220],
-        textColor: [0, 0, 0],
-        lineWidth: 0.1,
-        lineColor: [0, 0, 0],
-        halign: 'center',
-        fontSize: 8
-      },
-      bodyStyles: {
-        lineWidth: 0.1,
-        lineColor: [0, 0, 0],
-        fontSize: 8,
-        halign: 'center'
-      },
-      styles: {
-        cellPadding: 1,
-        overflow: 'linebreak'
-      },
-      columnStyles: {
-        1: { halign: 'left' }, // Description aligned left
-        8: { halign: 'left' }  // Instructor aligned left
-      },
-      margin: { top: 10, left: 10, right: 10 },
-      pageBreak: 'avoid' // Try to keep blocks together
-    });
-
-    // Update yPos for next block
-    yPos = (doc as unknown as AutoTableDoc).lastAutoTable.finalY + 10;
-  }
-
-  // --- Footer ---
-  // Check if we have enough space, else add page
-  if (yPos > doc.internal.pageSize.height - 40) {
-    doc.addPage();
-    yPos = 20;
-  }
-
-  yPos += 10;
   doc.setFontSize(10);
-  
-  // Signatures
-  const leftX = 20;
-  const rightX = pageWidth - 80;
+  doc.text(formatYearLevelShort(meta.yearLevel), pageWidth / 2, yPos, { align: 'center' });
+  yPos += 6;
 
-  doc.text('Prepared by:', leftX, yPos);
-  doc.text('Approved by:', rightX, yPos);
-  
-  yPos += 15;
-  
-  // Placeholder names - could be passed in meta or dynamic
-  doc.setFont('helvetica', 'bold');
-  doc.text((meta.preparedBy || 'SHEILA A. GALORIO, PhD').toUpperCase(), leftX, yPos);
-  doc.text((meta.approvedBy || 'MA. CLEA DE ALVAREZ, PhD, Dev.Ed.D').toUpperCase(), rightX, yPos);
-  
+  const sorted = [...schedules].sort((a, b) => (a.subject?.code || '').localeCompare(b.subject?.code || ''));
+  const totalUnits = sorted.reduce((sum, s) => sum + (s.subject?.units || 0), 0);
+
+  autoTable(doc, {
+    startY: yPos,
+    head: [[
+      'COURSE CODE',
+      'COURSE DESCRIPTION',
+      'NO. OF UNITS',
+      'DAY',
+      'TIME',
+      'ROOM'
+    ]],
+    body: sorted.map(s => ([
+      s.subject?.code || '',
+      s.subject?.name || '',
+      String(s.subject?.units ?? ''),
+      mapDays(s.dayOfWeek),
+      `${formatTimeCompact(s.startTime)} - ${formatTimeCompact(s.endTime)}`,
+      s.room || ''
+    ])),
+    theme: 'grid',
+    styles: {
+      fontSize: 9,
+      cellPadding: 1.2,
+      lineWidth: 0.1,
+      lineColor: [0, 0, 0]
+    },
+    headStyles: {
+      fillColor: [230, 230, 230],
+      textColor: [0, 0, 0],
+      halign: 'center',
+      fontStyle: 'bold'
+    },
+    columnStyles: {
+      0: { halign: 'center', cellWidth: 28 },
+      1: { halign: 'left', cellWidth: 70 },
+      2: { halign: 'center', cellWidth: 18 },
+      3: { halign: 'center', cellWidth: 14 },
+      4: { halign: 'center', cellWidth: 36 },
+      5: { halign: 'center', cellWidth: 16 }
+    },
+    margin: { left: 14, right: 14 }
+  });
+
+  yPos = (doc as unknown as AutoTableDoc).lastAutoTable.finalY + 8;
+
   doc.setFont('helvetica', 'normal');
-  doc.setFontSize(8);
-  yPos += 4;
-  doc.text(meta.preparedByPosition || 'Program Head, BTVTED', leftX, yPos);
-  doc.text(meta.approvedByPosition || 'School President', rightX, yPos);
+  doc.setFontSize(10);
+  doc.text('Total Number of Units  >>>', 14, yPos);
+  doc.setFont('helvetica', 'bold');
+  doc.text(String(totalUnits), pageWidth - 14, yPos, { align: 'right' });
+  doc.setFont('helvetica', 'normal');
+
+  const footerTop = Math.max(yPos + 15, pageHeight - 42);
+  const leftX = 14;
+  const rightX = pageWidth / 2 + 10;
+  const lineWidth = 70;
+
+  const endorsedBy = meta.endorsedBy || meta.preparedBy || '';
+  const endorsedByPosition = meta.endorsedByPosition || meta.preparedByPosition || '';
+  const approvedBy = meta.approvedBy || '';
+  const approvedByPosition = meta.approvedByPosition || '';
+
+  doc.setFontSize(10);
+  doc.text('Endorsed by:', leftX, footerTop);
+  doc.text('Approved by:', rightX, footerTop);
+
+  const lineY = footerTop + 18;
+  doc.line(leftX, lineY, leftX + lineWidth, lineY);
+  doc.line(rightX, lineY, rightX + lineWidth, lineY);
+
+  doc.setFont('helvetica', 'bold');
+  doc.text(endorsedBy.toUpperCase(), leftX, lineY + 6);
+  doc.text(approvedBy.toUpperCase(), rightX, lineY + 6);
+
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(9);
+  doc.text(endorsedByPosition, leftX, lineY + 11);
+  doc.text(approvedByPosition, rightX, lineY + 11);
 
   // Save or Return Preview URL
   if (options?.preview) {
     return doc.output('bloburl');
   }
 
-  doc.save(`${meta.courseName}-${meta.yearLevel}-Schedule.pdf`);
+  doc.save(`${courseCode}-${meta.yearLevel}-Schedule.pdf`);
 };

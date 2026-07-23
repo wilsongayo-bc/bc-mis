@@ -347,7 +347,7 @@ const Login: React.FC = () => {
         <div className={`text-center text-sm transition-colors duration-200 ${
           theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
         }`}>
-          <p>&copy; 2025 Benedict College. All rights reserved.</p>
+          <p>&copy; 2026 Benedicto College. All rights reserved.</p>
         </div>
       </div>
 

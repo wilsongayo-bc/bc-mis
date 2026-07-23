@@ -5,6 +5,56 @@ All notable changes to the Benedict College Management Information System will b
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2026-07-23] - BSIT Schedule Seed (SY 2026-2027, 1st Semester)
+
+### Summary
+- Added a repeatable seed script to import BSIT (1st–4th year) paper schedules into the database for SY 2026-2027, 1st Semester.
+
+### Backend (API)
+- Added an idempotent BSIT schedule seeder script and a structured dataset source file.
+- Seeder ensures: active academic year, semester settings, placeholder teacher (User + Employee), BSIT course sections, subjects, and schedules.
+- Added `npm run seed:bsit-schedules:2026` to run the import locally.
+
+### Verification
+- `api`: `npm run migrate`
+- `api`: `npm run seed:bsit-schedules:2026`
+- `GET /api/schedules?semester=First%20Semester&academicYear=2026-2027`
+
+## [2026-07-23] - Schedules Year Level Filter
+
+### Summary
+- Added a Year Level filter to the Schedule Management page to quickly view schedules for a specific year level (e.g., all First Year).
+
+### Frontend
+- Added a `Year Level` dropdown filter on the Schedules page that sends `yearLevel` to the API.
+
+### Verification
+- `npm run check`
+
+## [2026-07-23] - Schedule Report Print Layout + Signatories
+
+### Summary
+- Updated the schedule report PDF preview/output to match the paper-style schedule format.
+- Added selectable employee signatories for Endorsed By / Approved By in the print modal.
+
+### Frontend
+- Updated schedule report generator layout (header, simplified table columns, total units row, and signature block).
+- Print modal now loads employees and allows selecting Endorsed By / Approved By from employee records.
+
+### Verification
+- `npm run check`
+
+## [2026-07-23] - Production Course Management Fix (API Base Path)
+
+### Summary
+- Fixed production-only 404 errors on Course Management caused by API requests hitting `/courses` instead of `/api/courses` depending on environment base URL configuration.
+
+### Frontend
+- Added a request-time guard that prefixes `/api` when the configured base URL does not already point to the API path.
+
+### Verification
+- `npm run check`
+
 ## [2026-07-23] - Production Logo Upload Fix (Vercel + Render)
 
 ### Summary

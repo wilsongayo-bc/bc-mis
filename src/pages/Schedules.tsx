@@ -520,6 +520,27 @@ const Schedules: React.FC = () => {
                   </select>
                 </div>
 
+                <div>
+                  <label className={`block text-sm font-medium mb-1 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
+                    }`}>
+                    Year Level
+                  </label>
+                  <select
+                    value={filters.yearLevel || ''}
+                    onChange={(e) => handleFilterChange('yearLevel', e.target.value || undefined)}
+                    className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${theme === 'dark'
+                        ? 'border-gray-600 bg-gray-700 text-white'
+                        : 'border-gray-300 bg-white text-gray-900'
+                      }`}
+                  >
+                    <option value="">All Year Levels</option>
+                    <option value="First Year">First Year</option>
+                    <option value="Second Year">Second Year</option>
+                    <option value="Third Year">Third Year</option>
+                    <option value="Fourth Year">Fourth Year</option>
+                  </select>
+                </div>
+
                 {/* Room Filter */}
                 <div>
                   <label className={`block text-sm font-medium mb-1 ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'

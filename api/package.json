@@ -21,6 +21,7 @@
     "migrate": "npx ts-node scripts/run-migrations-simple.ts",
     "migrate:old": "npx ts-node scripts/run-migrations.ts",
     "migrate:prod": "node dist/scripts/run-migrations.js",
+    "seed:bsit-schedules:2026": "npx ts-node scripts/seed-bsit-schedules-2026-2027.ts",
     "fix:requirements": "npx ts-node scripts/fix-document-requirements.ts",
     "import-subjects": "npx ts-node scripts/import-subjects.ts",
     "import-subjects:prod": "node dist/scripts/import-subjects.js",

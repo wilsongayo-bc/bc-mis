@@ -155,6 +155,22 @@ const getErrorMessage = (error: unknown): string => {
 // Request interceptor to add auth token
 api.interceptors.request.use(
   (config) => {
+    const base = (config.baseURL || API_BASE_URL || '').toString();
+    const url = (config.url || '').toString();
+
+    if (url && url.startsWith('/') && !url.startsWith('/api')) {
+      try {
+        const parsed = /^https?:\/\//i.test(base) ? new URL(base) : null;
+        const basePath = parsed ? parsed.pathname.replace(/\/+$/, '') : base.replace(/\/+$/, '');
+        const baseHasApi = basePath === '/api' || basePath.endsWith('/api');
+        if (!baseHasApi) {
+          config.url = `/api${url}`;
+        }
+      } catch {
+        void 0;
+      }
+    }
+
     const token = localStorage.getItem('token');
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;

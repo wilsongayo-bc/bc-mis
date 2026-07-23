@@ -19,20 +19,34 @@ interface Course {
   courseCode: string;
 }
 
+interface EmployeeUser {
+  id: string;
+  firstName: string;
+  lastName: string;
+  position: string;
+}
+
+interface EmployeeRecord {
+  id: string;
+  employeeId: string;
+  user: EmployeeUser;
+}
+
 const PrintReportModal: React.FC<PrintReportModalProps> = ({ isOpen, onClose, theme }) => {
   const [loading, setLoading] = useState(false);
   const [courses, setCourses] = useState<Course[]>([]);
   const [selectedCourse, setSelectedCourse] = useState('');
   const [selectedYearLevel, setSelectedYearLevel] = useState('First Year');
   const [semester, setSemester] = useState('First Semester');
+  const [employees, setEmployees] = useState<EmployeeRecord[]>([]);
   
   const { academicYear: currentAcademicYear } = useAcademicYear();
   const [academicYear, setAcademicYear] = useState(currentAcademicYear);
   
   const { settings, schoolName, schoolLogo, schoolEmail } = useSchoolSettings();
   const [signatories, setSignatories] = useState({
-    preparedBy: { name: '', position: 'Program Head' },
-    approvedBy: { name: '', position: 'School President' }
+    endorsedBy: { id: '', name: '', position: '' },
+    approvedBy: { id: '', name: '', position: '' }
   });
 
   useEffect(() => {
@@ -44,33 +58,56 @@ const PrintReportModal: React.FC<PrintReportModalProps> = ({ isOpen, onClose, th
   useEffect(() => {
     if (isOpen) {
       fetchCourses();
-      fetchSignatories();
+      fetchEmployees();
     }
   }, [isOpen]);
 
-  const fetchSignatories = async () => {
+  const fetchEmployees = async () => {
     try {
-      // Fetch Program Head
-      const progHeadRes = await api.get('/users', { params: { position: 'Program Head', limit: 1 } });
-      if (progHeadRes.data.data && progHeadRes.data.data.length > 0) {
-        const u = progHeadRes.data.data[0];
+      const response = await api.get('/employees', { params: { page: 1, limit: 200 } });
+      if (!response.data?.success) return;
+
+      const list: EmployeeRecord[] = response.data.data || [];
+      const sorted = [...list].sort((a, b) => (a.user?.lastName || '').localeCompare(b.user?.lastName || ''));
+      setEmployees(sorted);
+
+      const findByPosition = (predicate: (position: string) => boolean) =>
+        sorted.find(e => typeof e.user?.position === 'string' && predicate(e.user.position.toLowerCase()));
+
+      const defaultEndorser =
+        findByPosition(p => p.includes('dean')) ||
+        findByPosition(p => p.includes('program head')) ||
+        sorted[0];
+
+      const defaultApprover =
+        findByPosition(p => p.includes('director') && p.includes('academic')) ||
+        findByPosition(p => p.includes('director')) ||
+        findByPosition(p => p.includes('president')) ||
+        sorted[0];
+
+      if (defaultEndorser) {
         setSignatories(prev => ({
           ...prev,
-          preparedBy: { name: `${u.firstName} ${u.lastName}`, position: u.position }
+          endorsedBy: {
+            id: defaultEndorser.id,
+            name: `${defaultEndorser.user.firstName} ${defaultEndorser.user.lastName}`,
+            position: defaultEndorser.user.position
+          }
         }));
       }
 
-      // Fetch President
-      const presRes = await api.get('/users', { params: { position: 'President', limit: 1 } });
-      if (presRes.data.data && presRes.data.data.length > 0) {
-        const u = presRes.data.data[0];
+      if (defaultApprover) {
         setSignatories(prev => ({
           ...prev,
-          approvedBy: { name: `${u.firstName} ${u.lastName}`, position: u.position }
+          approvedBy: {
+            id: defaultApprover.id,
+            name: `${defaultApprover.user.firstName} ${defaultApprover.user.lastName}`,
+            position: defaultApprover.user.position
+          }
         }));
       }
     } catch (error) {
-      console.error('Failed to fetch signatories:', error);
+      console.error('Failed to fetch employees:', error);
     }
   };
 
@@ -130,8 +167,8 @@ const PrintReportModal: React.FC<PrintReportModalProps> = ({ isOpen, onClose, th
           schoolName,
           schoolAddress: getSettingValue(settings, 'school_address', ''),
           schoolEmail,
-          preparedBy: signatories.preparedBy.name,
-          preparedByPosition: signatories.preparedBy.position,
+          endorsedBy: signatories.endorsedBy.name,
+          endorsedByPosition: signatories.endorsedBy.position,
           approvedBy: signatories.approvedBy.name,
           approvedByPosition: signatories.approvedBy.position
         }, { preview });
@@ -233,6 +270,66 @@ const PrintReportModal: React.FC<PrintReportModalProps> = ({ isOpen, onClose, th
                 theme === 'dark' ? 'bg-gray-700 border-gray-600' : 'bg-white border-gray-300'
               }`}
             />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-1">Endorsed By</label>
+            <select
+              value={signatories.endorsedBy.id}
+              onChange={(e) => {
+                const selected = employees.find(emp => emp.id === e.target.value);
+                setSignatories(prev => ({
+                  ...prev,
+                  endorsedBy: selected
+                    ? {
+                        id: selected.id,
+                        name: `${selected.user.firstName} ${selected.user.lastName}`,
+                        position: selected.user.position
+                      }
+                    : { id: '', name: '', position: '' }
+                }));
+              }}
+              className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 ${
+                theme === 'dark' ? 'bg-gray-700 border-gray-600' : 'bg-white border-gray-300'
+              }`}
+            >
+              <option value="">Select Employee</option>
+              {employees.map(emp => (
+                <option key={emp.id} value={emp.id}>
+                  {emp.user.lastName}, {emp.user.firstName} - {emp.user.position}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-1">Approved By</label>
+            <select
+              value={signatories.approvedBy.id}
+              onChange={(e) => {
+                const selected = employees.find(emp => emp.id === e.target.value);
+                setSignatories(prev => ({
+                  ...prev,
+                  approvedBy: selected
+                    ? {
+                        id: selected.id,
+                        name: `${selected.user.firstName} ${selected.user.lastName}`,
+                        position: selected.user.position
+                      }
+                    : { id: '', name: '', position: '' }
+                }));
+              }}
+              className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 ${
+                theme === 'dark' ? 'bg-gray-700 border-gray-600' : 'bg-white border-gray-300'
+              }`}
+            >
+              <option value="">Select Employee</option>
+              {employees.map(emp => (
+                <option key={emp.id} value={emp.id}>
+                  {emp.user.lastName}, {emp.user.firstName} - {emp.user.position}
+                </option>
+              ))}
+            </select>
           </div>
         </div>
 
