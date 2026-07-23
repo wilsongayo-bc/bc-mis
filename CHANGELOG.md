@@ -55,6 +55,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Verification
 - `npm run check`
 
+## [2026-07-23] - Production Schedule Print Report Fix (Filtering)
+
+### Summary
+- Fixed production-only "No schedules found" in Schedule Report Preview/Generate by making the schedules API filter resilient when some schedules are missing `courseSection` linkage.
+
+### Backend
+- Updated `GET /api/schedules` filtering for `courseId` and `yearLevel` to match either `courseSection.*` or `subject.*` fields (fallback path for older data).
+
+### Verification
+- `npm run check`
+
 ## [2026-07-23] - Production Logo Upload Fix (Vercel + Render)
 
 ### Summary

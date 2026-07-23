@@ -109,11 +109,30 @@ router.get('/', authenticateToken, requireRole(UserRole.TEACHER), async (req: Au
     }
 
     if (courseId) {
-      queryBuilder.andWhere('courseSection.courseId = :courseId', { courseId });
+      queryBuilder.andWhere(
+        new Brackets((qb) => {
+          qb.where('courseSection.courseId = :courseId', { courseId }).orWhere('subject.courseId = :courseId', { courseId });
+        })
+      );
     }
 
     if (yearLevel) {
-      queryBuilder.andWhere('courseSection.yearLevel = :yearLevel', { yearLevel });
+      const yearLevelNumMap: Record<string, number> = {
+        'First Year': 1,
+        'Second Year': 2,
+        'Third Year': 3,
+        'Fourth Year': 4
+      };
+      const yearLevelNum = typeof yearLevel === 'string' ? yearLevelNumMap[yearLevel] : undefined;
+
+      queryBuilder.andWhere(
+        new Brackets((qb) => {
+          qb.where('courseSection.yearLevel = :yearLevel', { yearLevel });
+          if (typeof yearLevelNum === 'number') {
+            qb.orWhere('subject.yearLevel = :yearLevelNum', { yearLevelNum });
+          }
+        })
+      );
     }
 
     if (teacherId) {
