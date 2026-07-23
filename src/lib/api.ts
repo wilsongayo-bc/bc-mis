@@ -58,6 +58,25 @@ export const resolveApiBaseUrl = (): string => {
 
 export const API_BASE_URL = resolveApiBaseUrl();
 
+export const resolveAssetUrl = (value: string): string => {
+  const raw = value?.trim();
+  if (!raw) return raw;
+  if (/^https?:\/\//i.test(raw) || raw.startsWith('data:')) return raw;
+
+  if (raw.startsWith('/uploads/')) {
+    if (import.meta.env.PROD && /^https?:\/\//i.test(API_BASE_URL)) {
+      try {
+        const apiUrl = new URL(API_BASE_URL);
+        return `${apiUrl.origin}${raw}`;
+      } catch {
+        return raw;
+      }
+    }
+  }
+
+  return raw;
+};
+
 // Create axios instance with base configuration
 const api = axios.create({
   baseURL: API_BASE_URL,

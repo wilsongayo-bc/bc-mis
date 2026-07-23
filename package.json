@@ -16,7 +16,7 @@
     "check": "tsc --noEmit",
     "type-check": "npm run check",
     "server:dev": "nodemon",
-    "dev": "concurrently \"npm run client:dev\" \"npm run server:dev\"",
+    "dev": "concurrently --kill-others-on-fail --kill-others \"npm run client:dev\" \"npm run server:dev\"",
     "init-users": "tsx api/scripts/init-users.ts",
     "init-data": "tsx api/scripts/init-default-data.ts",
     "seed": "node api/dist/scripts/seed-data.js",

@@ -8,6 +8,7 @@ import { Settings } from '../entities/Settings';
 import { AcademicYear } from '../entities/AcademicYear';
 import { authenticateToken, requireAdmin, AuthenticatedRequestWithFile } from '../middleware/auth';
 import { getCurrentAcademicYear } from '../utils/academicTerm';
+import { resolveUploadsDir } from '../utils/uploads';
 
 // Interface for settings object structure
 interface SettingsObject {
@@ -321,7 +322,8 @@ router.post('/logo', authenticateToken, requireAdmin, upload.single('logo') as u
       
       // Delete old logo from local storage if it exists
       if (logoSetting && logoSetting.value && logoSetting.value.startsWith('/uploads/')) {
-        const oldFilePath = path.join(process.cwd(), 'public', logoSetting.value);
+        const storedPath = logoSetting.value.split('?')[0];
+        const oldFilePath = path.join(resolveUploadsDir(), path.basename(storedPath));
         if (fs.existsSync(oldFilePath)) {
           try {
             fs.unlinkSync(oldFilePath);
@@ -333,7 +335,7 @@ router.post('/logo', authenticateToken, requireAdmin, upload.single('logo') as u
       }
 
       // Ensure uploads directory exists (relative to project root)
-      const uploadsDir = path.join(process.cwd(), 'public', 'uploads');
+      const uploadsDir = resolveUploadsDir();
       if (!fs.existsSync(uploadsDir)) {
         fs.mkdirSync(uploadsDir, { recursive: true });
         console.log('Created uploads directory:', uploadsDir);
@@ -443,7 +445,8 @@ router.delete('/logo', authenticateToken, requireAdmin, async (req: Request, res
     }
     // For local files, delete from disk
     else if (logoSetting.value && logoSetting.value.startsWith('/uploads/')) {
-      const filePath = path.join(process.cwd(), 'public', logoSetting.value);
+      const storedPath = logoSetting.value.split('?')[0];
+      const filePath = path.join(resolveUploadsDir(), path.basename(storedPath));
       if (fs.existsSync(filePath)) {
         try {
           fs.unlinkSync(filePath);

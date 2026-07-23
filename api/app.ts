@@ -45,6 +45,7 @@ import meRoutes from './routes/me';
 import emailVerificationRoutes from './routes/email-verification';
 import passwordResetRoutes from './routes/password-reset';
 import { activityLogMiddleware } from './middleware/activityLog';
+import { resolveUploadsDir } from './utils/uploads';
 
 // load env
 dotenv.config();
@@ -58,9 +59,11 @@ app.set('trust proxy', 1);
  */
 const corsOptions = {
   origin: function (origin: string | undefined, callback: (err: Error | null, allow?: string | boolean) => void) {
-    // Get allowed origins from environment variables (supports both old and new env vars)
-    const corsOrigins = process.env.CORS_ORIGIN?.split(',').map(url => url.trim()) || [];
-    const allowedOrigins = process.env.ALLOWED_ORIGINS?.split(',').map(url => url.trim()) || [];
+    const normalizeOrigin = (value: string): string =>
+      value.trim().replace(/^['"`]+|['"`]+$/g, '').replace(/,+$/g, '').replace(/\/+$/g, '');
+
+    const corsOrigins = process.env.CORS_ORIGIN?.split(',').map(normalizeOrigin).filter(Boolean) || [];
+    const allowedOrigins = process.env.ALLOWED_ORIGINS?.split(',').map(normalizeOrigin).filter(Boolean) || [];
     
     // Default allowed origins for development and production
     const defaultOrigins = [
@@ -68,20 +71,27 @@ const corsOptions = {
       'http://localhost:5173',           // Local Vite dev server
       'https://bc-mis.vercel.app',   // Production frontend (Vercel)
       'https://mis.benedictcollege.com', // Custom domain
-      process.env.FRONTEND_URL,          // Environment-specific frontend URL
+      process.env.FRONTEND_URL ? normalizeOrigin(process.env.FRONTEND_URL) : undefined,
       ...(corsOrigins.length > 0 ? corsOrigins : []) // Support old CORS_ORIGIN format
     ].filter(Boolean); // Remove undefined/null values
     
     // Combine all origins and remove duplicates
-    const allAllowedOrigins = [...new Set([...allowedOrigins, ...defaultOrigins])];
+    const allAllowedOrigins = [...new Set([...allowedOrigins, ...defaultOrigins])].map(normalizeOrigin);
+    const normalizedOrigin = origin ? normalizeOrigin(origin) : undefined;
     
     // Allow requests with no origin (mobile apps, Postman, etc.) in development
-    if (!origin && process.env.NODE_ENV !== 'production') {
+    if (!normalizedOrigin && process.env.NODE_ENV !== 'production') {
       return callback(null, true);
     }
 
-    if (origin && allAllowedOrigins.includes(origin)) {
-      return callback(null, origin);
+    if (process.env.NODE_ENV !== 'production' && normalizedOrigin) {
+      if (/^http:\/\/localhost:\d+$/.test(normalizedOrigin) || /^http:\/\/127\.0\.0\.1:\d+$/.test(normalizedOrigin)) {
+        return callback(null, normalizedOrigin);
+      }
+    }
+
+    if (normalizedOrigin && allAllowedOrigins.includes(normalizedOrigin)) {
+      return callback(null, normalizedOrigin);
     }
 
     console.warn(`🚫 CORS blocked request from origin: ${origin}`);
@@ -131,12 +141,11 @@ app.use(express.urlencoded({
 app.use(activityLogMiddleware);
 
 // Serve static files from public directory (for uploaded files)
-// Use process.cwd() to get project root, not __dirname which points to api/dist
-app.use('/uploads', express.static(path.join(process.cwd(), 'public', 'uploads')));
+app.use('/uploads', express.static(resolveUploadsDir()));
 // Fallback explicit file serving to avoid static middleware edge cases in dev
 app.get('/uploads/prelisting/:filename', (req: Request, res: Response) => {
   const safeName = path.basename(req.params.filename);
-  const filePath = path.join(process.cwd(), 'public', 'uploads', 'prelisting', safeName);
+  const filePath = path.join(resolveUploadsDir(), 'prelisting', safeName);
   res.sendFile(filePath, (err) => {
     if (err) {
       res.status(404).json({ success: false, message: 'File not found', path: req.originalUrl });

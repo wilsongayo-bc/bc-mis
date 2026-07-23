@@ -5,6 +5,62 @@ All notable changes to the Benedict College Management Information System will b
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2026-07-23] - Production Logo Upload Fix (Vercel + Render)
+
+### Summary
+- Fixed school logo rendering/upload issues that only happened on the live Vercel frontend while working locally.
+
+### Frontend
+- Normalized `/uploads/...` logo URLs to resolve against the configured API origin in production.
+- Ensured Settings page preview uses the same normalized logo URL logic.
+
+### Backend (API)
+- Made `/uploads` static file serving and logo upload filesystem paths robust when the API runs from the `api/` working directory (Render).
+- Fixed local-file deletion logic for old logos by correctly mapping `/uploads/...` URL paths to the real uploads directory.
+
+### Verification
+- `npm run check`
+- `npm run build:api`
+
+## [2026-07-22] - Render API + Vercel Frontend Deployment
+
+### Deployment
+- API deployed as a standalone service on Render from `api/`.
+- Frontend deployed on Vercel.
+
+### Backend (API)
+- Resolved Render build failures caused by out-of-sync lockfile and missing peer deps (added `openapi-types`).
+- Added missing AWS SDK deps in `api/package.json` required by S3/R2 routes (`@aws-sdk/client-s3`, `@aws-sdk/s3-request-presigner`).
+- Updated CORS behavior to allow production browser access from the Vercel frontend using `ALLOWED_ORIGINS` and `FRONTEND_URL`.
+
+### Frontend
+- Resolved Vercel install failure due to unused/mismatched NestJS dependencies at repo root by removing unused `@nestjs/*` packages.
+
+### Ops Notes
+- If Render redeploy fails during `puppeteer` install due to a broken cache, set `PUPPETEER_CACHE_DIR=/tmp/puppeteer` and redeploy with a cleared build cache.
+
+## Update Template (copy/paste)
+
+## [YYYY-MM-DD] - Short Title
+
+### Summary
+- 
+
+### Frontend
+- 
+
+### Backend (API)
+- 
+
+### Database / Migrations
+- 
+
+### Deployment / Ops
+- 
+
+### Verification
+- 
+
 ## [1.0.0] - 2025-01-XX
 
 ### 🎉 Initial Release

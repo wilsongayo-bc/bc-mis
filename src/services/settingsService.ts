@@ -1,4 +1,4 @@
-import api from '../lib/api';
+import api, { resolveAssetUrl } from '../lib/api';
 
 export interface Setting {
   id: number;
@@ -225,11 +225,15 @@ export const uploadLogo = async (token: string, file: File): Promise<{ logoUrl: 
     
     // Extract logoUrl from response.data.data
     const logoUrl = response.data.data?.logoUrl || response.data.logoUrl;
+    if (!logoUrl || typeof logoUrl !== 'string') {
+      throw new Error('Invalid logo URL returned by server.');
+    }
+    const resolvedLogoUrl = resolveAssetUrl(logoUrl);
     
     // Add cache-busting parameter to force browser to reload the image
-    const cacheBustedUrl = logoUrl.includes('?') 
-      ? `${logoUrl}&t=${Date.now()}` 
-      : `${logoUrl}?t=${Date.now()}`;
+    const cacheBustedUrl = resolvedLogoUrl.includes('?') 
+      ? `${resolvedLogoUrl}&t=${Date.now()}` 
+      : `${resolvedLogoUrl}?t=${Date.now()}`;
     
     return { logoUrl: cacheBustedUrl };
   } catch (error) {

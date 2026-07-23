@@ -10,6 +10,7 @@ import { CustomModal } from '../components/CustomModal';
 import { uploadLogo, getSettingValue } from '../services/settingsService';
 import { useAcademicYear } from '../hooks/useAcademicYear';
 import { BrandingContext } from '../contexts/BrandingContextDefinition';
+import { resolveAssetUrl } from '../lib/api';
 
 const Settings: React.FC = () => {
   const { theme, setTheme, fontSize, setFontSize, resetSettings: resetSettingsHook } = useSettingsContext();
@@ -78,7 +79,7 @@ const Settings: React.FC = () => {
       setLocalSchoolAddress(schoolAddress);
       setLocalSchoolPhone(schoolPhone);
       setLocalSchoolEmail(schoolEmail);
-      setCurrentLogoUrl(logoUrl);
+      setCurrentLogoUrl(logoUrl ? resolveAssetUrl(logoUrl) : '');
 
       // Set auth config with defaults if not found
       setSessionTimeout(savedSessionTimeout ? Number(savedSessionTimeout) : 30);
