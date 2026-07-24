@@ -66,6 +66,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Verification
 - `npm run check`
 
+## [2026-07-23] - Subject Year Level Normalization (First Year saved as 13)
+
+### Summary
+- Fixed Subject Year Level values being stored as `13` (etc.) when selecting "First Year" in the Subject edit form.
+
+### Frontend
+- Updated Subject Form year level dropdown to store college year levels as `1–4` for First–Fourth Year.
+
+### Backend (API)
+- Normalized incoming subject `yearLevel` values (`13–16` → `1–4`) on create/update to prevent inconsistent data.
+
+### Ops
+- Added `api`: `npm run fix:subjects:college-yearlevel` to bulk-fix existing subjects (`13–16` → `1–4`).
+
+### Verification
+- `npm run check`
+
 ## [2026-07-23] - Production Logo Upload Fix (Vercel + Render)
 
 ### Summary

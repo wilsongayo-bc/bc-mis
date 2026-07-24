@@ -254,6 +254,11 @@ router.post('/', authenticateToken, requireRole(UserRole.REGISTRAR), async (req:
       prerequisiteIds = [],
       coRequisiteIds = []
     } = req.body;
+
+    const normalizeCollegeYearLevel = (value: number) => {
+      if (value >= 13 && value <= 16) return value - 12;
+      return value;
+    };
     
     const subjectRepository = AppDataSource.getRepository(Subject);
     const departmentRepository = AppDataSource.getRepository(Department);
@@ -334,12 +339,13 @@ router.post('/', authenticateToken, requireRole(UserRole.REGISTRAR), async (req:
     }
 
     // Create new subject
+    const parsedYearLevel = normalizeCollegeYearLevel(Number(yearLevel));
     const subject = subjectRepository.create({
       name: name.trim(),
       code: code.trim().toUpperCase(),
       departmentId: resolvedDepartmentId || null,
       courseId: courseId,
-      yearLevel: Number(yearLevel),
+      yearLevel: parsedYearLevel,
       semester: String(semester),
       description: description?.trim() || null,
       units: Number(units),
@@ -420,6 +426,11 @@ router.put('/:id', authenticateToken, requireRole(UserRole.REGISTRAR), async (re
       prerequisiteIds = [],
       coRequisiteIds = []
     } = req.body;
+
+    const normalizeCollegeYearLevel = (value: number) => {
+      if (value >= 13 && value <= 16) return value - 12;
+      return value;
+    };
 
     const subjectRepository = AppDataSource.getRepository(Subject);
     const departmentRepository = AppDataSource.getRepository(Department);
@@ -516,12 +527,13 @@ router.put('/:id', authenticateToken, requireRole(UserRole.REGISTRAR), async (re
     }
 
     // Update subject
+    const parsedYearLevel = normalizeCollegeYearLevel(Number(yearLevel));
     await subjectRepository.update(id, {
       name: name.trim(),
       code: code.trim().toUpperCase(),
       departmentId: resolvedDepartmentId || null,
       courseId: courseId,
-      yearLevel: Number(yearLevel),
+      yearLevel: parsedYearLevel,
       semester: String(semester),
       description: description?.trim() || null,
       units: Number(units),

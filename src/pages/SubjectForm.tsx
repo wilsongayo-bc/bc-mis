@@ -89,6 +89,28 @@ const SubjectForm: React.FC = () => {
   // Dweezil's Code - Added state for grade levels from Settings
   const [gradeLevels, setGradeLevels] = useState<Array<{ id: string; name: string; levelOrder: number }>>([]);
 
+  const normalizeCollegeYearLevel = (value: number) => {
+    if (value >= 13 && value <= 16) return value - 12;
+    return value;
+  };
+
+  const collegeYearFromName = (name: string): number | null => {
+    const normalized = name.trim().toLowerCase();
+    if (normalized === 'first year') return 1;
+    if (normalized === 'second year') return 2;
+    if (normalized === 'third year') return 3;
+    if (normalized === 'fourth year') return 4;
+    return null;
+  };
+
+  const yearLevelOptions = gradeLevels
+    .map((level) => ({
+      id: level.id,
+      name: level.name,
+      value: collegeYearFromName(level.name)
+    }))
+    .filter((level): level is { id: string; name: string; value: number } => typeof level.value === 'number');
+
   // Dweezil's Code - Changed to load departments instead of courses
   // Load departments, subjects, and current subject data
   useEffect(() => {
@@ -152,7 +174,7 @@ const SubjectForm: React.FC = () => {
         description: currentSubject.description || '',
         departmentId: currentSubject.departmentId || '',
         courseId: currentSubject.courseId || '',
-        yearLevel: currentSubject.yearLevel || 1,
+        yearLevel: normalizeCollegeYearLevel(currentSubject.yearLevel || 1),
         semester: currentSubject.semester || 'First Semester',
         units: currentSubject.units || 3,
         lectureHours: currentSubject.lectureHours || 3,
@@ -567,11 +589,20 @@ const SubjectForm: React.FC = () => {
                   }`}
                 >
                   <option value="">Select Year Level</option>
-                  {gradeLevels.map((level) => (
-                    <option key={level.id} value={level.levelOrder}>
-                      {level.name}
-                    </option>
-                  ))}
+                  {yearLevelOptions.length > 0 ? (
+                    yearLevelOptions.map((level) => (
+                      <option key={level.id} value={level.value}>
+                        {level.name}
+                      </option>
+                    ))
+                  ) : (
+                    <>
+                      <option value="1">First Year</option>
+                      <option value="2">Second Year</option>
+                      <option value="3">Third Year</option>
+                      <option value="4">Fourth Year</option>
+                    </>
+                  )}
                 </select>
                 {errors.yearLevel && (
                   <p className="mt-1 text-sm flex items-center gap-1 text-red-600 dark:text-red-400">
