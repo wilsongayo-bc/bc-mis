@@ -124,12 +124,16 @@ router.get('/', authenticateToken, requireRole(UserRole.TEACHER), async (req: Au
         'Fourth Year': 4
       };
       const yearLevelNum = typeof yearLevel === 'string' ? yearLevelNumMap[yearLevel] : undefined;
+      const legacyYearLevelNum = typeof yearLevelNum === 'number' ? yearLevelNum + 12 : undefined;
 
       queryBuilder.andWhere(
         new Brackets((qb) => {
           qb.where('courseSection.yearLevel = :yearLevel', { yearLevel });
           if (typeof yearLevelNum === 'number') {
             qb.orWhere('subject.yearLevel = :yearLevelNum', { yearLevelNum });
+          }
+          if (typeof legacyYearLevelNum === 'number') {
+            qb.orWhere('subject.yearLevel = :legacyYearLevelNum', { legacyYearLevelNum });
           }
         })
       );

@@ -83,6 +83,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Verification
 - `npm run check`
 
+## [2026-07-23] - Production Schedule Report Year Level Fix (Legacy Data)
+
+### Summary
+- Fixed Schedule Report Preview returning "No schedules found" when production schedules rely on subject year level values stored as `13–16`.
+
+### Backend (API)
+- Updated `GET /api/schedules` year-level filtering to match both normalized (`1–4`) and legacy (`13–16`) `subject.yearLevel` values.
+
+### Verification
+- `npm run check`
+
 ## [2026-07-23] - Production Logo Upload Fix (Vercel + Render)
 
 ### Summary
