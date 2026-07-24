@@ -157,7 +157,19 @@ router.get('/', authenticateToken, requireRole(UserRole.TEACHER), async (req: Au
     }
 
     if (semester) {
-      queryBuilder.andWhere('schedule.semester = :semester', { semester });
+      const semesterText = String(semester).trim();
+      const normalized = semesterText.toLowerCase();
+      const semesterValues: string[] = [];
+      if (normalized === 'first semester' || normalized === 'first' || normalized === '1') {
+        semesterValues.push('FIRST', 'First Semester', '1');
+      } else if (normalized === 'second semester' || normalized === 'second' || normalized === '2') {
+        semesterValues.push('SECOND', 'Second Semester', '2');
+      } else if (normalized === 'summer' || normalized === '3') {
+        semesterValues.push('SUMMER', 'Summer', '3');
+      } else {
+        semesterValues.push(semesterText);
+      }
+      queryBuilder.andWhere('schedule.semester IN (:...semesterValues)', { semesterValues });
     }
 
     if (academicYear) {

@@ -94,6 +94,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Verification
 - `npm run check`
 
+## [2026-07-23] - Production Schedule Report Semester Fix (Normalization)
+
+### Summary
+- Fixed Schedule Report Preview returning "No schedules found" due to semester value mismatch (`FIRST/SECOND` vs `First Semester/Second Semester`) between production data and the report modal.
+
+### Backend (API)
+- Updated `GET /api/schedules` semester filtering to match multiple equivalent semester values.
+
+### Frontend
+- Updated the report modal semester dropdown to send the same semester values used in Schedule Management (`FIRST/SECOND/SUMMER`) while still printing a human-readable label in the report.
+
+### Verification
+- `npm run check`
+
 ## [2026-07-23] - Production Logo Upload Fix (Vercel + Render)
 
 ### Summary

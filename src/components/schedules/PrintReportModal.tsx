@@ -37,7 +37,7 @@ const PrintReportModal: React.FC<PrintReportModalProps> = ({ isOpen, onClose, th
   const [courses, setCourses] = useState<Course[]>([]);
   const [selectedCourse, setSelectedCourse] = useState('');
   const [selectedYearLevel, setSelectedYearLevel] = useState('First Year');
-  const [semester, setSemester] = useState('First Semester');
+  const [semester, setSemester] = useState('FIRST');
   const [employees, setEmployees] = useState<EmployeeRecord[]>([]);
   
   const { academicYear: currentAcademicYear } = useAcademicYear();
@@ -126,6 +126,13 @@ const PrintReportModal: React.FC<PrintReportModalProps> = ({ isOpen, onClose, th
     }
   };
 
+  const semesterLabel = (value: string) => {
+    if (value === 'FIRST') return 'First Semester';
+    if (value === 'SECOND') return 'Second Semester';
+    if (value === 'SUMMER') return 'Summer';
+    return value;
+  };
+
   const handleGenerate = async (preview = false) => {
     if (!selectedCourse) {
       toast.error('Please select a course');
@@ -160,7 +167,7 @@ const PrintReportModal: React.FC<PrintReportModalProps> = ({ isOpen, onClose, th
         const output = await generateScheduleReport(schedules, {
           courseName: course?.name || 'Unknown Course',
           courseCode: course?.courseCode || 'COURSE',
-          semester,
+          semester: semesterLabel(semester),
           academicYear,
           yearLevel: selectedYearLevel,
           logoUrl: schoolLogo || '/uploads/logo-1769045130003.jpg',
@@ -252,9 +259,9 @@ const PrintReportModal: React.FC<PrintReportModalProps> = ({ isOpen, onClose, th
                 theme === 'dark' ? 'bg-gray-700 border-gray-600' : 'bg-white border-gray-300'
               }`}
             >
-              <option value="First Semester">First Semester</option>
-              <option value="Second Semester">Second Semester</option>
-              <option value="Summer">Summer</option>
+              <option value="FIRST">First Semester</option>
+              <option value="SECOND">Second Semester</option>
+              <option value="SUMMER">Summer</option>
             </select>
           </div>
 
